@@ -1,9 +1,8 @@
 package com.github.bgora;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.Map;
+import static org.assertj.core.api.Assertions.assertThat;
 
 
 class JsonStringTest {
@@ -19,8 +18,8 @@ class JsonStringTest {
         var result = jsonString.jsonToMap();
 
         //then
-        Assertions.assertThat(result.isPresent());
-        Assertions.assertThat(result.get()).extracting("url", "type", "protocol")
+        assertThat(result.isPresent());
+        assertThat(result.get()).extracting("url", "type", "protocol")
                 .contains("infobip.com", "http", "ssh");
 
     }
@@ -34,7 +33,7 @@ class JsonStringTest {
         var result = jsonString.jsonToMap();
 
         //then
-        Assertions.assertThat(result.isEmpty());
+        assertThat(result.isEmpty());
 
     }
 }

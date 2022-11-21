@@ -1,9 +1,10 @@
 package com.github.bgora;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 
 class JsonMapTest {
@@ -22,7 +23,7 @@ class JsonMapTest {
         var result = map.toJson();
 
         //then
-        Assertions.assertThat(result).contains(expected);
+        assertThat(result).contains(expected);
 
     }
 
@@ -35,7 +36,7 @@ class JsonMapTest {
         var result = map.toJson();
 
         //then
-        Assertions.assertThat(result.isEmpty());
+        assertThat(result.isEmpty());
 
     }
 
