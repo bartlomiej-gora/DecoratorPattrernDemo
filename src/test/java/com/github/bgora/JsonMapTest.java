@@ -1,6 +1,5 @@
 package com.github.bgora;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -10,14 +9,14 @@ import java.util.Map;
 class JsonMapTest {
 
     @Test
-    void testJsonMap() throws JsonProcessingException {
+    void testJsonMap() {
         //given
         var settings = Map.of("url", "infobip.com",
                 "type", "http",
                 "protocol", "ssh");
         var expected = """
-               {"url":"infobip.com","type":"http","protocol":"ssh"}""";
-        JsonMap map = new JsonMap(settings);
+                {"url":"infobip.com","type":"http","protocol":"ssh"}""";
+        JsonMap map = new JsonMap();
 
         //when
         var result = map.toJson();
@@ -28,18 +27,16 @@ class JsonMapTest {
     }
 
     @Test
-    void testJsonString() throws JsonProcessingException {
+    void testJsonMapForEmptyMap() {
         //given
-        var givenJson = """
-               {"type":"http","protocol":"ssh","url":"infobip.com"}""";
-        var jsonString = new JsonString(givenJson);
+        JsonMap map = new JsonMap();
 
         //when
-        var result = jsonString.jsonToMap();
+        var result = map.toJson();
 
         //then
-        Assertions.assertThat(result).extracting("url", "type", "protocol")
-                .contains("infobip.com", "http", "ssh");
+        Assertions.assertThat(result.isEmpty());
 
     }
+
 }
