@@ -1,11 +1,10 @@
 package com.github.bgora;
 
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 public class JsonString {
 
-    public Optional<Map<String, String>> jsonToMap() {
+    public Optional<Map<String, Objects>> jsonToMap() {
         return Optional.empty();
     }
 }

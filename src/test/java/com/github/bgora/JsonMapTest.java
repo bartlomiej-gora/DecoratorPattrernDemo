@@ -20,7 +20,7 @@ class JsonMapTest {
         JsonMap map = new JsonMap();
 
         //when
-        var result = map.toJson();
+        var result = map.toJsonString();
 
         //then
         assertThat(result).contains(expected);
@@ -33,7 +33,7 @@ class JsonMapTest {
         JsonMap map = new JsonMap();
 
         //when
-        var result = map.toJson();
+        var result = map.toJsonString();
 
         //then
         assertThat(result.isEmpty());
